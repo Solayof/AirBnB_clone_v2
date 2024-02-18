@@ -122,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
             value (str): Value to be parsed
 
         Returns:
-            str/integer/float: value parsed
+            str/integer/float/None: value parsed
         """
         if " " in value:
             return None
@@ -179,7 +179,7 @@ class HBNBCommand(cmd.Cmd):
     def help_create(self):
         """ Help information for the create method """
         print("Creates a class of any type")
-        print("[Usage]: create <className>\n")
+        print("[Usage]: create <className> <param 1> <param2>...\n")
 
     def do_show(self, args):
         """ Method to show an individual object """
