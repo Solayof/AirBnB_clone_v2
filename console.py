@@ -128,12 +128,17 @@ class HBNBCommand(cmd.Cmd):
             return None
         value = value.replace("_", " ")
 
+        # handle string values
         if value[0] == '"' and value[-1] == '"':
             value = value.removeprefix('"').removesuffix('"')
             value = value.replace('"', '\"')
-
+        # handle integers and float values
         else:
             try:
+                # handle single quotes
+                if "'" in value:
+                    raise ValueError
+                # typecast str to int or float
                 value = ast.literal_eval(value)
             except ValueError:
                 value = None
@@ -152,8 +157,9 @@ class HBNBCommand(cmd.Cmd):
             return
         # create a new object
         new_instance = self.classes[arguments[0]]()
-        # create a dict with parameters
+        # extract only parameters as a list
         parameters = arguments[1:]
+        # construct a key/value pair from parameters
         for parameter in parameters:
             item = parameter.split("=")
             if len(item) != 2:
@@ -162,7 +168,10 @@ class HBNBCommand(cmd.Cmd):
             if not parsed_value:
                 continue
             # construct key
-            key = ast.literal_eval(str(item[0]))
+            try:
+                key = ast.literal_eval(str(item[0]))
+            except ValueError:
+                key = item[0]
             new_instance.__dict__[key] = parsed_value
         new_instance.save()
         print(new_instance.id)
@@ -270,7 +279,7 @@ class HBNBCommand(cmd.Cmd):
         print(count)
 
     def help_count(self):
-        """ """
+        """ Help information for the count command """
         print("Usage: count <class_name>")
 
     def do_update(self, args):
