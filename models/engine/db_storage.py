@@ -51,15 +51,15 @@ class DBStorage:
             dict: A dictionary of all the objects
         """
         all_objects = {}
-        if cls and cls in self.all_tables:
-            objects = self.__session.query(cls).all()
-            for obj in objects:
+        if cls:
+            objs = self.__session.query(cls).all()
+            for obj in objs:
                 key = f"{obj.__class__.__name__}.{obj.id}"
                 all_objects[key] = obj
         else:
             for table in self.all_tables:
-                objects = self.__session.query(table).all()
-                for obj in objects:
+                objs = self.__session.query(table).all()
+                for obj in objs:
                     key = f"{obj.__class__.__name__}.{obj.id}"
                     all_objects[key] = obj
 
@@ -95,7 +95,7 @@ class DBStorage:
         self.__session = scoped_session(sessionmaker(
             bind=self.__engine, expire_on_commit=False))
 
-    def close_session(self):
-        """Closes the current database session
-        """
-        self.__session.remove()
+    # def close_session(self):
+    #     """Closes the current database session
+    #     """
+    #     self.__session.remove()
