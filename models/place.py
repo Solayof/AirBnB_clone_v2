@@ -4,10 +4,10 @@ from sqlalchemy import Column, String, ForeignKey
 from models.base_model import BaseModel, Base
 
 
-class Place(BaseModel, Base):
+class Place(BaseModel):
     """ A place to stay """
-    city_id = Column(String(60), ForeignKey("cities.id"), nullable=False)
-    user_id = Column(String(60), ForeignKey("users.id"), nullable=False)
+    city_id = ""
+    user_id = ""
     name = ""
     description = ""
     number_rooms = 0
