@@ -21,7 +21,8 @@ class test_dbStorage(unittest.TestCase):
     def test_new(self):
         """ New object is correctly added to __objects """
         new = Amenity()
-        new.save()
+        storage.new(new)
+        storage.save()
         self.assertIn(new.to_dict(), storage.all().values())
         
     def testt_all(self):
@@ -65,6 +66,13 @@ class test_dbStorage(unittest.TestCase):
         amenity = Amenity()
         amenity.save()
         self.assertIn(amenity.to_dict(), storage.all(Amenity).values())
+        #test the all method of the db storage with the classes
+        all_dict = storage.all().values()
+        self.assertIn(amenity.to_dict(), all_dict)
+        self.assertIn(user.to_dict(), all_dict)
+        self.assertIn(state.to_dict(), all_dict)
+        self.assertIn(place.to_dict(), all_dict)
+        self.assertIn(city.to_dict(), all_dict)
         
 if __name__ == "__main__":
     unittest.main()
