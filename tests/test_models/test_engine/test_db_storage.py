@@ -7,8 +7,6 @@ from models.state import State
 from model.amenity import Amenity
 from models.user import User
 from models import storage
-import models                                                       
-import os
 
 
 class test_dbStorage(unittest.TestCase):
