@@ -44,7 +44,8 @@ class Place(BaseModel, Base):
     amenities = relationship(
         "Amenity",
         secondary=place_amenity,
-        viewonly=False
+        viewonly=False,
+        backref="places"
     )
     # for FileStorage
     # else:
