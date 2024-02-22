@@ -40,7 +40,7 @@ class test_dbStorage(unittest.TestCase):
         """Test delete method of db storage"""
         instance = Place()
         instance.save()
-        place_id = instance.id
+        user_id = instance.id
         instance.delete()
         # commit the delete
         instance.save()
