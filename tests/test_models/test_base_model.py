@@ -79,7 +79,6 @@ class test_basemodel(unittest.TestCase):
         """ """
         base_model = BaseModel()
         basemodel_dict = base_model.__dict__.copy()
-        print(basemodel_dict)
         basemodel_str =\
             "[BaseModel] ({}) {}".format(base_model.id, basemodel_dict)
         self.assertEqual(str(base_model), basemodel_str)

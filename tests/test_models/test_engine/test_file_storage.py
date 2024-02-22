@@ -169,7 +169,6 @@ class test_fileStorage(unittest.TestCase):
     def test_storage_var_created(self):
         """ FileStorage object test_storage created """
         from models.engine.file_storage import FileStorage
-        print(type(self.test_storage))
         self.assertEqual(type(self.test_storage), FileStorage)
 
     def test_reload_corrupted_file(self):
