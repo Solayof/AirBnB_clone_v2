@@ -39,6 +39,7 @@ class DBStorage:
         # so as to not interfere with the tests
         if running_environment == "test":
             Base.metadata.drop_all(self.__engine)
+            self.pen = self.__engine.cursor()
 
     def all(self, cls=None):
         """ Returns a dictionary of all objects. If a table is specified,
