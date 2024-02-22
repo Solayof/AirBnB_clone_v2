@@ -33,7 +33,7 @@ class BaseModel:
         """Returns a string representation of the instance"""
         cls = (str(type(self)).split('.')[-1]).split('\'')[0]
         new_dict = self.__dict__.copy()
-        if "_sa_instance_state" in new_dict: 
+        if "_sa_instance_state" in new_dict:
             del new_dict["_sa_instance_state"]
         return '[{}] ({}) {}'.format(cls, self.id, new_dict)
 

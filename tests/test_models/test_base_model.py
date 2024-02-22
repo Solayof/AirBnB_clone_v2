@@ -25,9 +25,9 @@ class test_basemodel(unittest.TestCase):
     def tearDown(self):
         try:
             os.remove('file.json')
-        except:
+        except (FileNotFoundError, PermissionError):
             pass
-        
+
     def test_init(self):
         """Test initialization of a BaseModel instance with no
         arguments passed

@@ -30,7 +30,7 @@ class test_fileStorage(unittest.TestCase):
         """ Remove test_storage file at end of tests """
         try:
             os.remove('test_file.json')
-        except:
+        except (FileNotFoundError, PermissionError):
             pass
 
     def test_obj_list_empty(self):
