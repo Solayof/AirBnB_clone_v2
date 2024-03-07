@@ -13,10 +13,10 @@ def do_pack():
     """This method will pack the web_static dir into a tar.gz
     for deployinment to remote servers.
     """
-    if not path.exists(.path.dirname("./web_static")):
+    if not path.exists(path.dirname("./web_static")):
         return None
 
-    if not .path.exists(.path.dirname("versions")):
+    if not path.exists(path.dirname("versions")):
         try:
             local("mkdir -p versions")
         except Exception as e:
