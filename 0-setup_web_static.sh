@@ -10,13 +10,13 @@ echo '<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Airbnb deploy</title>
 </head>
 <body>
 	Airbnb deploy    
 </body>
 </html>' > "$DW/releases/test/index.html"
-ln -s $DW/releases/test $DW/current
+ln -sf $DW/releases/test $DW/current
 chown -R ubuntu:ubuntu /data/
 
 NGPT="/etc/nginx"
@@ -32,13 +32,15 @@ echo "server {
 	location / {
 		index index.nginx-debian.html index.html index.htm index.php;
 	}
-	location /hbnb_staic {
+	location /hbnb_static {
 		alias $DW/current/;
 	}
 	location /redirect_me {
 		return 301 $url;
 	}
 }" > "$NGPT/sites-available/default"
+rm /etc/nginx/sites-enabled/default
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 mkdir -p $HTML
 echo "Hello World!" > "$HTML/index.nginx-debian.html"
 echo "Ceci n'est pas une page" > "$HTML/404.html"
