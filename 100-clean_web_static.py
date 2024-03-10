@@ -67,6 +67,7 @@ def deploy():
         return do_deploy(path)
     return False
 
+
 def do_clean(number=0):
     """method that deletes out-of-date archives from version directory and
     from the remote server(s).
