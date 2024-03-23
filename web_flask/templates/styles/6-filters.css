@@ -1,0 +1,99 @@
+.filters {
+    height: 70px;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    text-align: right;
+    background-color: white;
+}
+
+section.filters button {
+    font-size: 18px;
+    background-color: #FF5a5F;
+    color: #FFFFFF;
+    height: 48px;
+    width: 20%;
+    border: 0;
+    margin-top: 11px;
+    margin-bottom: 11px;
+    border-radius: 4px;
+    margin-right: 30px;
+    transition: opacity 0.3s ease, cursor 0.3s ease;
+}
+
+section.filters button:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+ section.filters .locations {
+    height: 100%;
+    width: 25%;
+    border-right: 1px solid #DDDDDD;
+    float: left;
+    text-align: left;
+   
+    
+}
+section.filters h3 {
+    font-weight: 600px;
+    margin: 0;
+    margin-top: 17px;
+    padding: 0;
+    padding-left: 30px;
+}
+
+section.filters .amenities{
+    text-align: left;
+    height: 100%;
+    width: 25%;
+    float: left;
+}
+
+section.filters h4{
+    margin: 0px;
+    padding: 0px;
+    font-weight: 400;
+    font-size: 14px;
+    padding-left: 30px;
+}
+
+section.filters .popover {
+    display: none;
+    position: relative;
+    border: 1px solid #DDDDDD;
+    background-color: #FAFAFA;
+    border-radius: 4px;
+    margin-top: 7%;
+    z-index: 1;
+    padding-bottom: 10%;
+}
+
+section.filters.popover li h2 {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+    padding-bottom: 5%;
+}
+
+.popover .pop_list {
+    padding: 0;
+    padding-left: 10%;
+    margin: 0;
+}
+
+section.filters.popover ul {
+    padding-top: 30px;
+}
+
+.amenities:hover >.popover {
+    display: block;
+}
+
+.locations:hover >.popover {
+    display: block;
+    margin-bottom: 50px;
+}
