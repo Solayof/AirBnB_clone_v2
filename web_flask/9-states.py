@@ -16,7 +16,8 @@ def states(state_id=None):
     State objects present in DBStorage sorted by name (A->Z)"""
     if state_id is not None:
         state_id = "State." + state_id
-    states = storage.all(State).values()
+    states = storage.all(State)
+    print(state_id in states)
     return render_template(
         "9-states.html", states=states, state_id=state_id)
 
