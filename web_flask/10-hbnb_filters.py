@@ -10,18 +10,20 @@ app = Flask(__name__)
 
 
 @app.route("/hbnb_filters", strict_slashes=False)
-def states():
-    """display a HTML page with the list of all State objects present in DBStorage sorted by name (A->Z)"""
-    amenities = storage.all("Amentity").values()
+def states(state_id=None):
+    """display a HTML page with the list of all
+    State objects present in DBStorage sorted by name (A->Z)"""
+    if state_id is not None:
+        state_id = "State." + state_id
     states = storage.all("State").values()
-    return render_template("10-hbnb_filters.html", states=states, amenities=amenities)
+    return render_template(
+        "8-cities_by_states.html", states=states, state_id=state_id)
 
 
 @app.teardown_appcontext
 def teardown_db(exception):
     """closes the storage"""
     storage.close()
-
 
 
 if __name__ == "__main__":

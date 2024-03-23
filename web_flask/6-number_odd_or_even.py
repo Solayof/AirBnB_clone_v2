@@ -5,6 +5,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
 @app.route('/', strict_slashes=False)
 def index():
     """returns Hello HBNB"""
@@ -49,7 +50,6 @@ def num_tmpt(n):
 def odd_or_even(n):
     """display a HTML page only if n is an integer"""
     return render_template("6-number_odd_or_even.html", num=n)
-
 
 
 if __name__ == "__main__":

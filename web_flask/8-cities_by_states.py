@@ -11,7 +11,8 @@ app = Flask(__name__)
 
 @app.route("/cities_by_states", strict_slashes=False)
 def cities_by_states():
-    """display a HTML page with the list of all State objects present in DBStorage sorted by name (A->Z)"""
+    """display a HTML page with the list of all
+    State objects present in DBStorage sorted by name (A->Z)"""
     states = storage.all("State").values()
     return render_template("8-cities_by_states.html", states=states)
 
@@ -20,7 +21,6 @@ def cities_by_states():
 def teardown_db(exception):
     """closes the storage"""
     storage.close()
-
 
 
 if __name__ == "__main__":
