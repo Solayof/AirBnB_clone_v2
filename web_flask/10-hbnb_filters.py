@@ -2,6 +2,7 @@
 """script that starts a Flask web application"""
 
 from flask import Flask, render_template
+from models.amenity import Amenity
 from models.state import State
 from models import storage
 
@@ -15,13 +16,14 @@ def states(state_id=None):
     State objects present in DBStorage sorted by name (A->Z)"""
     if state_id is not None:
         state_id = "State." + state_id
-    states = storage.all("State").values()
+    states = storage.all(State).values()
+    amenities = storage.all(Amenity).values()
     return render_template(
-        "8-cities_by_states.html", states=states, state_id=state_id)
+        "10-hbnb_filters.html", states=states, amenities=amenities)
 
 
 @app.teardown_appcontext
-def teardown_db(exception):
+def teardown_db(self):
     """closes the storage"""
     storage.close()
 
