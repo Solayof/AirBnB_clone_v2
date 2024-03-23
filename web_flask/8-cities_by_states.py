@@ -13,7 +13,7 @@ app = Flask(__name__)
 def cities_by_states():
     """display a HTML page with the list of all
     State objects present in DBStorage sorted by name (A->Z)"""
-    states = storage.all("State").values()
+    states = storage.all(State).values()
     return render_template("8-cities_by_states.html", states=states)
 
 
