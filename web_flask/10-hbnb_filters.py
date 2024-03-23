@@ -10,12 +10,11 @@ app = Flask(__name__)
 
 
 @app.route("/hbnb_filters", strict_slashes=False)
-def states(state_id=None):
+def states():
     """display a HTML page with the list of all State objects present in DBStorage sorted by name (A->Z)"""
-    if state_id is not None:
-        state_id = "State." + state_id
+    amenities = storage.all("Amentity").values()
     states = storage.all("State").values()
-    return render_template("8-cities_by_states.html", states=states, state_id=state_id)
+    return render_template("10-hbnb_filters.html", states=states, amenities=amenities)
 
 
 @app.teardown_appcontext
