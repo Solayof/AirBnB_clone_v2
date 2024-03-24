@@ -97,3 +97,8 @@ section.filters.popover ul {
     display: block;
     margin-bottom: 50px;
 }
+
+.popover{
+    overflow-y: auto;
+    max-height: 300px;
+}
