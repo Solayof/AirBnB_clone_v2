@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='styles/3-footer.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='styles/6-filters.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='styles/8-places.css') }}">
-    <link rel="icon" href="/static/images/icon.png" type="image/png">
+    <link rel="icon" href="{{url_for('static', filename='images/icon.png') }}" type="image/png">
     <title>AirBnB Clone</title>
 </head>
 <body>
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div class="description">
-                      {{place.description}}
+                      {{place.description|safe}}
                     </div>
                     
                 </article>
