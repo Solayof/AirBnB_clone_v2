@@ -47,9 +47,10 @@
             <div class="head_title">
                 <h1>Places</h1>
             </div>
+            {% for place in places %}
             <div class="articles">
                 <article>
-                    {% for place in places %}
+                    
                     <div class="price_title">
                         <div class="article_head">
                             <h2>{{place.name}}</h2>
@@ -85,15 +86,16 @@
                     </div>
                     <div>
                         <div class="user">
-                            <b>Owner:</b> {{place.user.name}}
+                            <b>Owner:</b> {{place.user.first_name + " " + place.user.last_name}}
                         </div>
                     </div>
                     <div class="description">
                       {{place.description}}
                     </div>
-                    {% endfor %}
+                    
                 </article>
             </div>
+            {% endfor %}
         </section>
     </div>
     <footer>Best School</footer>
